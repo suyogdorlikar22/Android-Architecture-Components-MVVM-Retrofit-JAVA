@@ -20,20 +20,59 @@ public class ArticleRepository {
         apiRequest = RetrofitRequest.getRetrofitInstance().create(ApiRequest.class);
     }
 
+       //======================RxJava =================================
+
+//        public LiveData<ArticleResponse> getMovieArticles(String query, String key) {
+//            final MutableLiveData<ArticleResponse> data = new MutableLiveData<>();
+//
+//            apiRequest.getMovieArticles(query,key)
+//                    .toObservable()
+//                    .subscribeOn(Schedulers.io())
+//                    .subscribe(new Observer<ArticleResponse>() {
+//                        @Override
+//                        public void onSubscribe(Disposable d) {
+//
+//                        }
+//
+//                        @Override
+//                        public void onNext(ArticleResponse articleResponse) {
+//                            if (articleResponse!=null){
+//                            Log.d(TAG, "articles total result:: " + articleResponse.getArticles().get(0).getTitle());
+//                                data.postValue(articleResponse);
+//                            }
+//                        }
+//
+//                        @Override
+//                        public void onError(Throwable e) {
+//                            Log.d(TAG, "articles total result:: " +e);
+//                            data.postValue(null);
+//
+//                        }
+//
+//                        @Override
+//                        public void onComplete() {
+//
+//                        }
+//                    });
+//
+//            return data;
+//        }
+
+
+
+    //=========================Retrofite-=======================
+
     public LiveData<ArticleResponse> getMovieArticles(String query, String key) {
         final MutableLiveData<ArticleResponse> data = new MutableLiveData<>();
         apiRequest.getMovieArticles(query, key)
                 .enqueue(new Callback<ArticleResponse>() {
 
-
                     @Override
                     public void onResponse(Call<ArticleResponse> call, Response<ArticleResponse> response) {
                         Log.d(TAG, "onResponse response:: " + response);
 
-
-
                         if (response.body() != null) {
-                            data.setValue(response.body());
+                            data.postValue(response.body());
 
                             Log.d(TAG, "articles total result:: " + response.body().getTotalResults());
                             Log.d(TAG, "articles size:: " + response.body().getArticles().size());
@@ -43,7 +82,7 @@ public class ArticleRepository {
 
                     @Override
                     public void onFailure(Call<ArticleResponse> call, Throwable t) {
-                        data.setValue(null);
+                        data.postValue(null);
                     }
                 });
         return data;
