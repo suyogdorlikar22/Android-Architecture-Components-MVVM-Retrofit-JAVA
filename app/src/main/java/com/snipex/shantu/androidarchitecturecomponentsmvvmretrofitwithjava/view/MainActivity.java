@@ -67,6 +67,18 @@ public class MainActivity extends AppCompatActivity {
      *
      * @param @null
      */
+    
+    
+      private void getUpdateProgressbar() {
+        viewModel.getIsUpdating().observe(this, new Observer<Boolean>() {
+            @Override
+            public void onChanged(@Nullable Boolean aBoolean) {
+                if (aBoolean == true) {
+                  
+            }
+        });
+    }
+    
     private void getMovieArticles() {
         articleViewModel.getArticleResponseLiveData().observe(this, articleResponse -> {
             if (articleResponse != null) {
@@ -75,6 +87,17 @@ public class MainActivity extends AppCompatActivity {
                 List<Article> articles = articleResponse.getArticles();
                 articleArrayList.addAll(articles);
                 adapter.notifyDataSetChanged();
+                
+                
+                //=====================Rx Java=====================
+//                    articleViewModel.getArticleResponseLiveData()
+//                 .observe(this, new Observer<List<articleResponse>>() {
+//                     @Override
+//                     public void onChanged(List<articleResponse> postRespons) {
+//                         Log.d(TAG, "onChanged: " + articleResponse.size());
+//                      }
+//                 });
+                    
             }
         });
     }
