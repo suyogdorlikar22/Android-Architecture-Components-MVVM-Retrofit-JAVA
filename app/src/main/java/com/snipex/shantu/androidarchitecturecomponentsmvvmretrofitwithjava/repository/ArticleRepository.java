@@ -15,7 +15,7 @@ import retrofit2.Response;
 public class ArticleRepository {
     private static final String TAG = ArticleRepository.class.getSimpleName();
     private ApiRequest apiRequest;
-
+    private MutableLiveData<Boolean> mIsUpdating = new MutableLiveData<>();
     public ArticleRepository() {
         apiRequest = RetrofitRequest.getRetrofitInstance().create(ApiRequest.class);
     }
@@ -54,7 +54,7 @@ public class ArticleRepository {
 
 //        public LiveData<ArticleResponse> getMovieArticles(String query, String key) {
 //            final MutableLiveData<ArticleResponse> data = new MutableLiveData<>();
-//
+// mIsUpdating.setValue(true);
 //            apiRequest.getMovieArticles(query,key)
 //                    .toObservable()
 //                    .subscribeOn(Schedulers.io())
@@ -69,6 +69,7 @@ public class ArticleRepository {
 //                            if (articleResponse!=null){
 //                            Log.d(TAG, "articles total result:: " + articleResponse.getArticles().get(0).getTitle());
 //                                data.postValue(articleResponse);
+//      mIsUpdating.setValue(false);
 //                            }
 //                        }
 //
@@ -76,6 +77,8 @@ public class ArticleRepository {
 //                        public void onError(Throwable e) {
 //                            Log.d(TAG, "articles total result:: " +e);
 //                            data.postValue("");
+    //      mIsUpdating.setValue(false);
+
 //
 //                        }
 //
