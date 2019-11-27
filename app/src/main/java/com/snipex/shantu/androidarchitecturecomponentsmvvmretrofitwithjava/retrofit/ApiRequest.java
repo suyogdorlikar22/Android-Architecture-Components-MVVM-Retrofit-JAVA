@@ -18,7 +18,7 @@ public interface ApiRequest {
     
         //======RxJava ==================
 //    @GET("v2/everything/")
-//    Flowable<ArticleResponse> getMovieArticles(
+//    Flowable<List<ArticleResponse>> getMovieArticles(
 //            @Query("q") String query,
 //            @Query("apikey") String apiKey
 //    );
