@@ -75,7 +75,7 @@ public class ArticleRepository {
 //                        @Override
 //                        public void onError(Throwable e) {
 //                            Log.d(TAG, "articles total result:: " +e);
-//                            data.postValue(null);
+//                            data.postValue("");
 //
 //                        }
 //
