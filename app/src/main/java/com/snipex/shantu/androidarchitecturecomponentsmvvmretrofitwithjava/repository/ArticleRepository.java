@@ -52,8 +52,8 @@ public class ArticleRepository {
 
        //======================RxJava =================================
 
-//        public LiveData<ArticleResponse> getMovieArticles(String query, String key) {
-//            final MutableLiveData<ArticleResponse> data = new MutableLiveData<>();
+//        public LiveData<List<ArticleResponse>> getMovieArticles(String query, String key) {
+//            final MutableLiveData<List<ArticleResponse>> data = new MutableLiveData<>();
 // mIsUpdating.setValue(true);
 //            apiRequest.getMovieArticles(query,key)
 //                    .toObservable()
