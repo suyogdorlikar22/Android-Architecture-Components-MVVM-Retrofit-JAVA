@@ -11,7 +11,10 @@ import com.snipex.shantu.androidarchitecturecomponentsmvvmretrofitwithjava.respo
 public class ArticleViewModel extends AndroidViewModel {
 
     private ArticleRepository articleRepository;
-    private LiveData<ArticleResponse> articleResponseLiveData;
+//     private LiveData<List<ArticleResponse>> articleResponseLiveData;
+    
+//         private LiveData<ArticleResponse> articleResponseLiveData;
+    
      private MutableLiveData<Boolean> mIsUpdating = new MutableLiveData<>();
 
 
