@@ -13,7 +13,7 @@ public class ArticleViewModel extends AndroidViewModel {
     private ArticleRepository articleRepository;
 //     private LiveData<List<ArticleResponse>> articleResponseLiveData;
     
-//         private LiveData<ArticleResponse> articleResponseLiveData;
+        private LiveData<ArticleResponse> articleResponseLiveData;
     
      private MutableLiveData<Boolean> mIsUpdating = new MutableLiveData<>();
 
