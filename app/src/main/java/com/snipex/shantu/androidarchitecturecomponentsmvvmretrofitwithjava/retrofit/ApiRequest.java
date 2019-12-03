@@ -16,6 +16,8 @@ public interface ApiRequest {
             @Query("apikey") String apiKey
     );
     
+            
+//             https://stackoverflow.com/questions/37698501/retrofit-2-path-vs-query
         //======RxJava ==================
 //    @GET("v2/everything/")
 //    Flowable<List<ArticleResponse>> getMovieArticles(
